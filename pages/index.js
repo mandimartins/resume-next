@@ -1,14 +1,22 @@
 import React from 'react';
 
-const index = (props) => {
+const index = ({ repos, user }) => {
   return (
-    <div>
-      <h1>Bem-vindo!</h1>
-      <div>{props.currentDate}</div>
-      {props.repos.map((repo) => {
+    <div className="container mx-auto">
+      <h1 className="text-5xl">Olá, eu sou Amanda Martins</h1>
+      <h2 className="font-bold text-3xl">Meus repositórios no github</h2>
+      <p>
+        Github stats: public repos {user.public_repos} / public_gists:
+        {user.public_gists} / followers: {user.followers}
+      </p>
+
+      {repos.map((repo) => {
         return (
-          <div key={repo.id}>
-            <h3>{repo.full_name}</h3>
+          <div
+            key={repo.id}
+            className="rounded bg-gray-200 mx-8 my-4 p-8 hover:shadow"
+          >
+            <h3 className="font-bold">{repo.full_name}</h3>
             <p>
               Language: {repo.language} / Stars: {repo.stargazers_count}
             </p>
@@ -20,10 +28,13 @@ const index = (props) => {
 };
 
 export async function getServerSideProps(context) {
-  const res = await fetch(
+  const resUser = await fetch('https://api.github.com/users/mandimartins');
+  const user = await resUser.json();
+
+  const resRepos = await fetch(
     'https://api.github.com/users/mandimartins/repos?sort=updated'
   );
-  const repos = await res.json();
+  const repos = await resRepos.json();
 
   const excludedRepos = [
     'mandimartins/js-tdd',
@@ -52,6 +63,7 @@ export async function getServerSideProps(context) {
     props: {
       currentData: new Date().toString(),
       repos: filteredRepos,
+      user,
     },
   };
 }
