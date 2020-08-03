@@ -1,44 +1,106 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import getUser from '../utils/getUser';
 
+import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
+
 import { GlobalStyle, ResetStyle } from '../styles/globalStyle';
-import { Container } from '../styles';
+import {
+  Container,
+  Title,
+  Subtitle,
+  Box,
+  FlexWrapper,
+  ImageContainer,
+  HeaderBackground,
+} from '../styles';
+
+import Display from '../components/Display';
 
 const index = ({ repos, user }) => {
   return (
-    <Container>
+    <Fragment>
       <ResetStyle />
       <GlobalStyle />
-      <h1 className="">Olá, eu sou Amanda Martins</h1>
-      <h2 className="">Meus repositórios no github</h2>
-      <p>
-        Github stats: public repos {user.public_repos} / public_gists:
-        {user.public_gists} / followers: {user.followers}
-      </p>
+      <HeaderBackground>
+        <FlexWrapper>
+          <FlexWrapper column>
+            <ImageContainer />
+            <Title className="">Amanda Martins</Title>
+            <Subtitle className="">Fullstack developer</Subtitle>
+            {/* <p>
+              Github stats: public repos {user.public_repos} / public_gists:
+              {user.public_gists} / followers: {user.followers}
+            </p> */}
+          </FlexWrapper>
 
-      {repos.map((repo) => {
+          <Display title="CONTACT ME">
+            <FlexWrapper column>
+              <FlexWrapper>
+                <FaGithub
+                  color="white"
+                  size={80}
+                  style={{ margin: '1rem 1rem 1rem 0' }}
+                />
+                <a
+                  href="https://www.github.com/mandimartins"
+                  style={{ color: '#eee', margin: 'auto 0' }}
+                >
+                  Github/mandimartins
+                </a>
+              </FlexWrapper>
+              <FlexWrapper>
+                <FaLinkedin
+                  color="white"
+                  size={80}
+                  style={{ margin: '1rem 1rem 1rem 0' }}
+                />
+                <a
+                  href="https://www.github.com/mandimartins"
+                  style={{ color: '#eee', margin: 'auto 0' }}
+                >
+                  Github/mandimartins
+                </a>
+              </FlexWrapper>
+              <FlexWrapper>
+                <FaFacebook
+                  color="white"
+                  size={80}
+                  style={{ margin: '1rem 1rem 1rem 0' }}
+                />
+                <a
+                  href="https://www.github.com/mandimartins"
+                  style={{ color: '#eee', margin: 'auto 0' }}
+                >
+                  Github/mandimartins
+                </a>
+              </FlexWrapper>
+            </FlexWrapper>
+          </Display>
+        </FlexWrapper>
+      </HeaderBackground>
+      {/* {repos.map((repo) => {
         return (
-          <div key={repo.id} className="">
+          <Box key={repo.id}>
             <h3 className="">{repo.full_name}</h3>
             <p>
               Language: {repo.language} / Stars: {repo.stargazers_count}
             </p>
-          </div>
+          </Box>
         );
-      })}
-    </Container>
+      })} */}
+    </Fragment>
   );
 };
 
-export async function getServerSideProps(context) {
-  const { repos, user } = await getUser('mandimartins');
+// export async function getServerSideProps(context) {
+//   const { repos, user } = await getUser('mandimartins');
 
-  return {
-    props: {
-      repos,
-      user,
-    },
-  };
-}
+//   return {
+//     props: {
+//       repos,
+//       user,
+//     },
+//   };
+// }
 
 export default index;
