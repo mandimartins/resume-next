@@ -1,9 +1,14 @@
 import React from 'react';
 import getUser from '../utils/getUser';
 
+import { GlobalStyle, ResetStyle } from '../styles/globalStyle';
+import { Container } from '../styles';
+
 const index = ({ repos, user }) => {
   return (
-    <div className="">
+    <Container>
+      <ResetStyle />
+      <GlobalStyle />
       <h1 className="">Olá, eu sou Amanda Martins</h1>
       <h2 className="">Meus repositórios no github</h2>
       <p>
@@ -21,7 +26,7 @@ const index = ({ repos, user }) => {
           </div>
         );
       })}
-    </div>
+    </Container>
   );
 };
 
