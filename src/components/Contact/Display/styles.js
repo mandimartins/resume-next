@@ -8,6 +8,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h4`
+  font-size: 2.5rem;
+  text-transform: uppercase;
   background-color: #e22c36;
   padding: 1rem;
   text-align: center;
