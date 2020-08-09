@@ -35,7 +35,7 @@ body {
     line-height: 1;
     background-color: #100E17;
     color:#eee;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
 ol, ul {
   list-style: none;
