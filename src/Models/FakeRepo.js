@@ -14,7 +14,6 @@ export default new Array(
     Math.random() * Math.random() + Math.random(),
     'Repo Fullname',
     'Project Description',
-    'Project Description',
     'Project Website',
     'Repo Language',
     10
