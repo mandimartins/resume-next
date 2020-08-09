@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 
 import Carousel from 'react-elastic-carousel';
+import { FaStar } from 'react-icons/fa';
 
 import fakeRepos from '../../Models/FakeRepo';
 
@@ -30,8 +31,11 @@ const Repos = () => {
               </Paragraph>
               <Paragraph>
                 <Strong>Language:&nbsp;</Strong>
-                {repo.language} / Stars: {repo.stargazers_count}
+                {repo.language}
               </Paragraph>
+              <FaStar color="white" size={20} />
+              &nbsp;
+              {repo.stargazers_count}
             </Box>
           );
         })}
