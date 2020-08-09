@@ -2,7 +2,7 @@ import getUser from '../../utils/getUser';
 
 const apiGetUser = async (req, res) => {
   const data = await getUser('mandimartins');
-  res.send(data);
+  return res.json(data);
 };
 
 export default apiGetUser;
