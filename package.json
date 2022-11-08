@@ -11,7 +11,7 @@
   "author": "Amanda Martins <mandi.martins00@gmail.com> (https://github.com/mandimartins)",
   "license": "MIT",
   "dependencies": {
-    "next": "^9.4.4",
+    "next": "^13.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-elastic-carousel": "^0.6.7",
